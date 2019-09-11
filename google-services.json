@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "838656993821",
+    "firebase_url": "https://fir-jetpack-350ad.firebaseio.com",
+    "project_id": "fir-jetpack-350ad",
+    "storage_bucket": "fir-jetpack-350ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838656993821:android:5705d8dc56f658700ab4f4",
+        "android_client_info": {
+          "package_name": "com.example.firebasejetpack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838656993821-gi4htk42r5dos624sld1qej6qbklr2nq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebasejetpack",
+            "certificate_hash": "421ecdf0a0d849a81ac5de5446a539692aa6c7b5"
+          }
+        },
+        {
+          "client_id": "838656993821-q971824p7jnf2lecal06ori1qgca0b0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpDH8CdQ0OZlr-Nal2cVQY5Pjie0YlZlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838656993821-q971824p7jnf2lecal06ori1qgca0b0m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
