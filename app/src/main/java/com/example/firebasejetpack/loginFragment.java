@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -29,6 +31,7 @@ public class loginFragment extends Fragment implements View.OnClickListener {
     EditText edt_email, edt_pass;
     Button btn_log;
     TextView txt_reg;
+    Contoller navCon;
 
     private FirebaseAuth auth;
     FirebaseUser user;
@@ -43,6 +46,7 @@ public class loginFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         auth = FirebaseAuth.getInstance();
+
     }
 
     @Override
@@ -100,8 +104,23 @@ public class loginFragment extends Fragment implements View.OnClickListener {
 
         } else if (id == R.id.txt_lrge) {
 
+            NavController navController = Navigation.findNavController(getActivity(),R.id.host_frag);
+            navController.navigate(R.id.registerFragment);
+
         }
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        user= auth.getCurrentUser();
+
+        if (user != null)
+        {
+            updateUI(user);
+            Toast.makeText(getActivity().getApplicationContext(),"User Already Login",Toast.LENGTH_LONG).show();
+        }
     }
 
     public void loginUser(String email, String pass) {
@@ -111,10 +130,21 @@ public class loginFragment extends Fragment implements View.OnClickListener {
                 if (task.isSuccessful()) {
                     user = auth.getCurrentUser();
                     Toast.makeText(getActivity().getApplicationContext(), "Login Success!", Toast.LENGTH_LONG).show();
+
+                    updateUI(user);
+
                 } else {
                     Toast.makeText(getActivity().getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    public void updateUI(FirebaseUser user)
+    {
+        navCon = new Contoller();
+        Bundle b = new Bundle();
+        b.putParcelable("user",user);
+        navCon.navigateToFragmnet(R.id.dashboardFragment,getActivity(),b);
     }
 }
